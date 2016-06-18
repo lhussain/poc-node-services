@@ -10,16 +10,16 @@ var async = require("async");
 var moment = require("moment");
 
 //Our libraries
-var GeopostError = require("../../error/kwtrError");
+var KwtrError = require("../../error/kwtrError");
 var PreparedErrors = require("../../error/preparedErrors");
 var sqlUtils = require("../../utils/sqlUtils");
 
 module.exports = function Service (config) {
 
-    //assert(config.mongoDepot, "Connection to Mongo Depot DB is required");
+    assert(config.mongoLoman, "Connection to Mongo Loman DB is required");
     //assert(config.mysqlCore, "Connection to MySql core is required");
 
-    //var $mongoDepot = config.mongoDepot;
+    var $mongoLoman = config.mongoLoman;
     //var $mysqlCore = config.mysqlCore;
     //var $mysqlEsg = config.mySql;
 
@@ -28,7 +28,39 @@ module.exports = function Service (config) {
     service.getMockData = function (lomansCode, callback) {
         service.emit("kwtr:debug", "my name is Loman and my code is %s", lomansCode);
 
-        callback(null, {helloWorld: "Loman's code is: " + lomansCode});
+        var fields = {};
+        var options = {};
+        var query = {};
+
+        $mongoLoman.collection("TEST").find(query, fields, options).toArray(function (err, docs) {
+
+            if (err) {
+                return callback(new KwtrError({
+                    errorCode: 1000, //TODO: Add a store error code
+                    errorObj: "database",
+                    message: err.message
+                }));
+            }
+
+            var rawData = docs[0];
+
+            if (_.isEmpty(rawData)) {
+                return callback(new KwtrError({
+                    errorCode: 1004,
+                    errorObj: "Test",
+                    message: "Test data cannot be found"
+                }), null);
+            }
+
+//            var matrixOut = {
+//                matrixTemplateId: rawMatrix._id.matrixTemplateId,
+//                matrixTemplateName: rawMatrix.matrixTemplateName,
+//                matrixOuterPostcode: rawMatrix.matrixOuterPostcode
+//            };
+
+            return callback(null, {data: rawData});
+        });
+
     };
 
 

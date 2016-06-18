@@ -11,10 +11,22 @@ function handleError (err) {
     process.exit(-1);
 }
 
+function mongoConnectLoman (callback) {
+    MongoClient.connect(process.env.KWTR_MONGO_LOMAN_DB, function (err, db) {
+        if (err)
+            return callback(err);
+
+        callback(null, {
+            mongoLoman: db
+        });
+    });
+}
+
 function buildConfig (next) {
     async.waterfall([
         function (cb) {
-            cb(null, {test: "test-config"});
+            mongoConnectLoman(cb);
+            //cb(null, {test: "test-config"});
         }
 
     ], function (err, config) {
