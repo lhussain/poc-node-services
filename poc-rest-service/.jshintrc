@@ -1,0 +1,24 @@
+{
+  "node": true,
+  "indent": 4,
+  "latedef": true,
+  "maxcomplexity": 12,
+  "maxdepth": 7,
+  "maxparams": 6,
+  "maxstatements": 36,
+  "newcap": true,
+  "nonew": true,
+  "nonbsp": true,
+  "quotmark": "double",
+  "strict": true,
+  "trailing": true,
+  "unused": true,
+  "undef": true,
+  "predef": [
+    "describe",
+    "before",
+    "beforeEach",
+    "it",
+    "after"
+  ]
+}

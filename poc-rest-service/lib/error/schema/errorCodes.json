@@ -1,0 +1,65 @@
+{
+    "1032": {
+        "errorCode": 1032
+    },
+    "1031": {
+        "errorCode": 1031,
+        "errorType": "ObjectError",
+        "errorMessage": "Missing required field"
+    },
+    "1030": {
+        "errorCode": 1030,
+        "errorType": "RuleError",
+        "errorMessage": "The system has failed to pass an application rule"
+    },
+    "1029": {
+        "errorCode": 1029,
+        "errorType": "ValidationError",
+        "errorMessage": "Value past in is not a valid type"
+    },
+    "1028": {
+        "errorCode": 1028,
+        "errorType": "ValidationError",
+        "errorMessage": "Field is not allowed for this resource type"
+    },
+    "1027": {
+        "errorCode": 1027,
+        "errorType": "ResourceError",
+        "errorMessage": "Id already exists"
+    },
+    "1026": {
+        "errorCode": 1026,
+        "errorType": "ObjectError",
+        "errorMessage": "Invalid object type"
+    },
+    "1018": {
+        "errorCode": 1018,
+        "errorType": "ValidationError",
+        "errorMessage": "Invalid field value"
+    },
+    "1007": {
+        "errorCode": 1007,
+        "errorType": "ObjectError",
+        "errorMessage": "Missing mandatory field"
+    },
+    "1004": {
+        "errorCode": 1004,
+        "errorType": "ResourceError",
+        "errorMessage": "The requested resource cannot be found"
+    },
+    "1001": {
+        "errorCode": 1001,
+        "errorType": "ObjectError",
+        "errorMessage": "Maximum length exceeded"
+    },
+    "1000": {
+        "errorCode": 1000,
+        "errorType": "ApplicationError",
+        "errorMessage": "General Application Error"
+    },
+    "1033": {
+        "errorCode": 1033,
+        "errorType": "ValidationError",
+        "errorMessage": "Value past in is not allowed for this resource"
+    }
+}
